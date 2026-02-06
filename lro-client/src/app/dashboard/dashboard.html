@@ -1,0 +1,184 @@
+<div class="dashboard">
+  <header class="header">
+    <h1>🔄 Long Running Operations Dashboard</h1>
+    <p class="subtitle">Validate the LRO library — start operations, watch progress, and see completed results</p>
+  </header>
+
+  <!-- ── START OPERATIONS PANEL ── -->
+  <section class="panel start-panel">
+    <h2>Start a New Operation</h2>
+    <div class="start-actions">
+      <!-- Report Generation -->
+      <div class="action-card">
+        <h3>📊 Report Generation</h3>
+        <p>Simulates generating a large report (~11 seconds)</p>
+        <div class="form-row">
+          <label for="reportType">Report Type:</label>
+          <select id="reportType" [(ngModel)]="reportType">
+            <option value="Monthly">Monthly</option>
+            <option value="Weekly">Weekly</option>
+            <option value="Annual">Annual</option>
+            <option value="Custom">Custom</option>
+          </select>
+        </div>
+        <button class="btn btn-primary" (click)="startReport()" [disabled]="isStartingReport">
+          {{ isStartingReport ? 'Starting...' : 'Generate Report' }}
+        </button>
+      </div>
+
+      <!-- Data Export -->
+      <div class="action-card">
+        <h3>📦 Data Export</h3>
+        <p>Simulates exporting data in batches (~10 seconds)</p>
+        <div class="form-row">
+          <label for="exportFormat">Format:</label>
+          <select id="exportFormat" [(ngModel)]="exportFormat">
+            <option value="CSV">CSV</option>
+            <option value="JSON">JSON</option>
+            <option value="Excel">Excel</option>
+            <option value="Parquet">Parquet</option>
+          </select>
+        </div>
+        <button class="btn btn-secondary" (click)="startExport()" [disabled]="isStartingExport">
+          {{ isStartingExport ? 'Starting...' : 'Export Data' }}
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── ACTIVE OPERATIONS (TRACKED) ── -->
+  <section class="panel" *ngIf="operations.length > 0">
+    <h2>Active Operations ({{ operations.length }})</h2>
+
+    <div class="operation-card" *ngFor="let op of operations">
+      <div class="op-header">
+        <div class="op-title">
+          <strong>{{ op.operationName }}</strong>
+          <span class="badge" [ngClass]="getStateBadgeClass(op.currentStatus?.status ?? OperationState.Accepted)">
+            {{ stateLabels[op.currentStatus?.status ?? OperationState.Accepted] }}
+          </span>
+        </div>
+        <div class="op-id">{{ op.operationId }}</div>
+      </div>
+
+      <!-- Progress Bar -->
+      <div class="progress-container" *ngIf="op.isPolling || (op.currentStatus?.status === OperationState.Running)">
+        <div class="progress-bar">
+          <div
+            class="progress-fill"
+            [style.width.%]="op.currentStatus?.percentComplete ?? 0"
+            [class.progress-complete]="op.currentStatus?.percentComplete === 100"
+          ></div>
+        </div>
+        <span class="progress-text">{{ op.currentStatus?.percentComplete ?? 0 }}%</span>
+      </div>
+
+      <!-- Result Display -->
+      <div class="result-panel" *ngIf="op.resultParsed">
+        <h4>✅ Operation Result</h4>
+        <pre class="result-json">{{ op.resultParsed | json }}</pre>
+      </div>
+
+      <!-- Error Display -->
+      <div class="error-panel" *ngIf="op.currentStatus?.status === OperationState.Failed">
+        <h4>❌ Error</h4>
+        <p>{{ op.currentStatus?.errorMessage }}</p>
+      </div>
+
+      <!-- Logs -->
+      <details class="logs-section">
+        <summary>Activity Log ({{ op.logs.length }} entries)</summary>
+        <div class="log-entries">
+          <div class="log-entry" *ngFor="let log of op.logs">{{ log }}</div>
+        </div>
+      </details>
+
+      <!-- Actions -->
+      <div class="op-actions">
+        <button
+          class="btn btn-danger btn-sm"
+          *ngIf="op.isPolling"
+          (click)="cancelOperation(op)"
+        >
+          Cancel
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── ALL OPERATIONS (SERVER LIST) ── -->
+  <section class="panel">
+    <div class="panel-header">
+      <h2>All Operations (Server)</h2>
+      <button class="btn btn-outline btn-sm" (click)="refreshList()" [disabled]="isLoadingList">
+        {{ isLoadingList ? 'Loading...' : '🔄 Refresh' }}
+      </button>
+    </div>
+
+    <div class="empty-state" *ngIf="allOperations.length === 0 && !isLoadingList">
+      <p>No operations found. Start one above!</p>
+    </div>
+
+    <table class="operations-table" *ngIf="allOperations.length > 0">
+      <thead>
+        <tr>
+          <th>Operation ID</th>
+          <th>Name</th>
+          <th>Status</th>
+          <th>Progress</th>
+          <th>Created</th>
+          <th>Completed</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let op of allOperations">
+          <td class="mono">{{ op.operationId | slice:0:8 }}...</td>
+          <td>{{ op.operationName }}</td>
+          <td>
+            <span class="badge" [ngClass]="getStateBadgeClass(op.status)">
+              {{ stateLabels[op.status] }}
+            </span>
+          </td>
+          <td>
+            <div class="mini-progress">
+              <div class="mini-progress-fill" [style.width.%]="op.percentComplete"></div>
+            </div>
+            {{ op.percentComplete }}%
+          </td>
+          <td>{{ op.createdAtUtc | date:'medium' }}</td>
+          <td>{{ op.completedAtUtc ? (op.completedAtUtc | date:'medium') : '—' }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- ── HOW IT WORKS ── -->
+  <section class="panel info-panel">
+    <h2>How the LRO Flow Works</h2>
+    <div class="flow-diagram">
+      <div class="flow-step">
+        <div class="step-num">1</div>
+        <div class="step-content">
+          <strong>POST /api/reports/generate</strong>
+          <p>Client sends request → API returns <code>202 Accepted</code> with <code>operationId</code> + <code>statusCheckUrl</code></p>
+        </div>
+      </div>
+      <div class="flow-arrow">↓</div>
+      <div class="flow-step">
+        <div class="step-num">2</div>
+        <div class="step-content">
+          <strong>GET /api/operations/&#123;id&#125;</strong>
+          <p>Client polls the status URL → Gets <code>percentComplete</code>, <code>retryAfterSeconds</code></p>
+        </div>
+      </div>
+      <div class="flow-arrow">↓</div>
+      <div class="flow-step">
+        <div class="step-num">3</div>
+        <div class="step-content">
+          <strong>Status: Succeeded</strong>
+          <p>When complete, <code>resultData</code> contains the JSON result from <code>ctx.SetResultAsync()</code></p>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

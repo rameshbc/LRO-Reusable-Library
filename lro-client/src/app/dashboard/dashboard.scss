@@ -1,0 +1,499 @@
+// ── Variables ──
+$primary: #4f46e5;
+$primary-light: #818cf8;
+$success: #22c55e;
+$danger: #ef4444;
+$warning: #f59e0b;
+$info: #3b82f6;
+$gray-50: #f9fafb;
+$gray-100: #f3f4f6;
+$gray-200: #e5e7eb;
+$gray-300: #d1d5db;
+$gray-500: #6b7280;
+$gray-700: #374151;
+$gray-900: #111827;
+$radius: 12px;
+$radius-sm: 8px;
+
+// ── Base ──
+.dashboard {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 24px 16px;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  color: $gray-900;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 32px;
+
+  h1 {
+    font-size: 28px;
+    font-weight: 700;
+    margin: 0;
+  }
+
+  .subtitle {
+    color: $gray-500;
+    margin-top: 8px;
+    font-size: 15px;
+  }
+}
+
+// ── Panels ──
+.panel {
+  background: #fff;
+  border: 1px solid $gray-200;
+  border-radius: $radius;
+  padding: 24px;
+  margin-bottom: 24px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+
+  h2 {
+    font-size: 18px;
+    font-weight: 600;
+    margin: 0 0 16px;
+  }
+}
+
+.panel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+
+  h2 {
+    margin: 0;
+  }
+}
+
+// ── Start Actions ──
+.start-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+
+  @media (max-width: 640px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.action-card {
+  background: $gray-50;
+  border: 1px solid $gray-200;
+  border-radius: $radius-sm;
+  padding: 20px;
+
+  h3 {
+    font-size: 16px;
+    margin: 0 0 8px;
+  }
+
+  p {
+    color: $gray-500;
+    font-size: 13px;
+    margin: 0 0 16px;
+  }
+}
+
+.form-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 16px;
+
+  label {
+    font-size: 14px;
+    font-weight: 500;
+    white-space: nowrap;
+  }
+
+  select {
+    flex: 1;
+    padding: 8px 12px;
+    border: 1px solid $gray-300;
+    border-radius: 6px;
+    font-size: 14px;
+    background: #fff;
+  }
+}
+
+// ── Buttons ──
+.btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  width: 100%;
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+
+  &-primary {
+    background: $primary;
+    color: #fff;
+    &:hover:not(:disabled) {
+      background: darken($primary, 8%);
+    }
+  }
+
+  &-secondary {
+    background: $info;
+    color: #fff;
+    &:hover:not(:disabled) {
+      background: darken($info, 8%);
+    }
+  }
+
+  &-danger {
+    background: $danger;
+    color: #fff;
+    &:hover:not(:disabled) {
+      background: darken($danger, 8%);
+    }
+  }
+
+  &-outline {
+    background: transparent;
+    border: 1px solid $gray-300;
+    color: $gray-700;
+    width: auto;
+    &:hover:not(:disabled) {
+      background: $gray-100;
+    }
+  }
+
+  &-sm {
+    padding: 6px 14px;
+    font-size: 13px;
+    width: auto;
+  }
+}
+
+// ── Operation Card ──
+.operation-card {
+  border: 1px solid $gray-200;
+  border-radius: $radius-sm;
+  padding: 20px;
+  margin-bottom: 16px;
+  background: $gray-50;
+}
+
+.op-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 12px;
+}
+
+.op-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  strong {
+    font-size: 16px;
+  }
+}
+
+.op-id {
+  font-family: 'Fira Code', monospace;
+  font-size: 11px;
+  color: $gray-500;
+}
+
+// ── Badges ──
+.badge {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.badge-accepted {
+  background: #dbeafe;
+  color: #1d4ed8;
+}
+
+.badge-running {
+  background: #fef3c7;
+  color: #92400e;
+  animation: pulse 1.5s infinite;
+}
+
+.badge-succeeded {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.badge-failed {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+.badge-cancelled {
+  background: $gray-200;
+  color: $gray-700;
+}
+
+.badge-timedout {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+// ── Progress Bar ──
+.progress-container {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.progress-bar {
+  flex: 1;
+  height: 10px;
+  background: $gray-200;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, $primary, $primary-light);
+  border-radius: 5px;
+  transition: width 0.4s ease;
+
+  &.progress-complete {
+    background: linear-gradient(90deg, $success, lighten($success, 10%));
+  }
+}
+
+.progress-text {
+  font-size: 14px;
+  font-weight: 600;
+  width: 45px;
+  text-align: right;
+  color: $gray-700;
+}
+
+// ── Result / Error Panels ──
+.result-panel {
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  border-radius: $radius-sm;
+  padding: 16px;
+  margin: 12px 0;
+
+  h4 {
+    margin: 0 0 8px;
+    font-size: 14px;
+    color: #166534;
+  }
+}
+
+.result-json {
+  background: #fff;
+  border: 1px solid #bbf7d0;
+  border-radius: 6px;
+  padding: 12px;
+  font-family: 'Fira Code', monospace;
+  font-size: 13px;
+  overflow-x: auto;
+  white-space: pre-wrap;
+  margin: 0;
+}
+
+.error-panel {
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  border-radius: $radius-sm;
+  padding: 16px;
+  margin: 12px 0;
+
+  h4 {
+    margin: 0 0 8px;
+    font-size: 14px;
+    color: #991b1b;
+  }
+
+  p {
+    margin: 0;
+    color: #dc2626;
+    font-size: 14px;
+  }
+}
+
+// ── Logs ──
+.logs-section {
+  margin-top: 12px;
+
+  summary {
+    cursor: pointer;
+    font-size: 13px;
+    color: $gray-500;
+    font-weight: 500;
+    padding: 4px 0;
+  }
+}
+
+.log-entries {
+  max-height: 200px;
+  overflow-y: auto;
+  margin-top: 8px;
+  padding: 8px;
+  background: #fff;
+  border: 1px solid $gray-200;
+  border-radius: 6px;
+}
+
+.log-entry {
+  font-family: 'Fira Code', monospace;
+  font-size: 12px;
+  color: $gray-700;
+  padding: 3px 0;
+  border-bottom: 1px solid $gray-100;
+
+  &:last-child {
+    border-bottom: none;
+  }
+}
+
+// ── Operation Actions ──
+.op-actions {
+  margin-top: 12px;
+  display: flex;
+  gap: 8px;
+}
+
+// ── Operations Table ──
+.operations-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+
+  th {
+    text-align: left;
+    padding: 10px 12px;
+    background: $gray-50;
+    border-bottom: 2px solid $gray-200;
+    font-weight: 600;
+    color: $gray-700;
+    font-size: 13px;
+  }
+
+  td {
+    padding: 10px 12px;
+    border-bottom: 1px solid $gray-100;
+    vertical-align: middle;
+  }
+
+  .mono {
+    font-family: 'Fira Code', monospace;
+    font-size: 12px;
+    color: $gray-500;
+  }
+}
+
+.mini-progress {
+  display: inline-block;
+  width: 60px;
+  height: 6px;
+  background: $gray-200;
+  border-radius: 3px;
+  overflow: hidden;
+  margin-right: 8px;
+  vertical-align: middle;
+}
+
+.mini-progress-fill {
+  height: 100%;
+  background: $primary;
+  border-radius: 3px;
+  transition: width 0.3s;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 24px;
+  color: $gray-500;
+}
+
+// ── Info / Flow Diagram ──
+.info-panel {
+  background: #f5f3ff;
+  border-color: #c4b5fd;
+}
+
+.flow-diagram {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.flow-step {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  padding: 12px;
+  background: #fff;
+  border-radius: $radius-sm;
+  border: 1px solid $gray-200;
+}
+
+.step-num {
+  flex-shrink: 0;
+  width: 32px;
+  height: 32px;
+  background: $primary;
+  color: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.step-content {
+  strong {
+    font-size: 14px;
+    display: block;
+    margin-bottom: 4px;
+  }
+
+  p {
+    margin: 0;
+    font-size: 13px;
+    color: $gray-500;
+    line-height: 1.5;
+  }
+
+  code {
+    background: #e0e7ff;
+    padding: 1px 5px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-family: 'Fira Code', monospace;
+  }
+}
+
+.flow-arrow {
+  text-align: center;
+  font-size: 20px;
+  color: $gray-500;
+  padding: 2px;
+}
