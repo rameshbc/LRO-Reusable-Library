@@ -9853,11 +9853,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/ramesh/Documents/Projects/LROAPI/tests/LongRunningOperations.Tests/LongRunningOperations.Tests.csproj",
+      "projectUniqueName": "/Users/ramesh/Documents/Projects/LROAPI/LRO-Reusable-Library/tests/LongRunningOperations.Tests/LongRunningOperations.Tests.csproj",
       "projectName": "LongRunningOperations.Tests",
-      "projectPath": "/Users/ramesh/Documents/Projects/LROAPI/tests/LongRunningOperations.Tests/LongRunningOperations.Tests.csproj",
+      "projectPath": "/Users/ramesh/Documents/Projects/LROAPI/LRO-Reusable-Library/tests/LongRunningOperations.Tests/LongRunningOperations.Tests.csproj",
       "packagesPath": "/Users/ramesh/.nuget/packages/",
-      "outputPath": "/Users/ramesh/Documents/Projects/LROAPI/tests/LongRunningOperations.Tests/obj/",
+      "outputPath": "/Users/ramesh/Documents/Projects/LROAPI/LRO-Reusable-Library/tests/LongRunningOperations.Tests/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/Users/ramesh/.nuget/NuGet/NuGet.Config"
@@ -9872,11 +9872,11 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "/Users/ramesh/Documents/Projects/LROAPI/src/LongRunningOperations.Core/LongRunningOperations.Core.csproj": {
-              "projectPath": "/Users/ramesh/Documents/Projects/LROAPI/src/LongRunningOperations.Core/LongRunningOperations.Core.csproj"
+            "/Users/ramesh/Documents/Projects/LROAPI/LRO-Reusable-Library/src/LongRunningOperations.Core/LongRunningOperations.Core.csproj": {
+              "projectPath": "/Users/ramesh/Documents/Projects/LROAPI/LRO-Reusable-Library/src/LongRunningOperations.Core/LongRunningOperations.Core.csproj"
             },
-            "/Users/ramesh/Documents/Projects/LROAPI/src/SampleApi/SampleApi.csproj": {
-              "projectPath": "/Users/ramesh/Documents/Projects/LROAPI/src/SampleApi/SampleApi.csproj"
+            "/Users/ramesh/Documents/Projects/LROAPI/LRO-Reusable-Library/src/SampleApi/SampleApi.csproj": {
+              "projectPath": "/Users/ramesh/Documents/Projects/LROAPI/LRO-Reusable-Library/src/SampleApi/SampleApi.csproj"
             }
           }
         }
@@ -9951,5 +9951,13 @@
         "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/10.0.100/PortableRuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "NU1900",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Error occurred while getting package vulnerability data: Unable to load the service index for source https://api.nuget.org/v3/index.json."
+    }
+  ]
 }

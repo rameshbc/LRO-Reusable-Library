@@ -10,3 +10,16 @@
 /Users/ramesh/Documents/Projects/LROAPI/src/LongRunningOperations.Core/obj/Debug/net8.0/refint/LongRunningOperations.Core.dll
 /Users/ramesh/Documents/Projects/LROAPI/src/LongRunningOperations.Core/obj/Debug/net8.0/LongRunningOperations.Core.pdb
 /Users/ramesh/Documents/Projects/LROAPI/src/LongRunningOperations.Core/obj/Debug/net8.0/ref/LongRunningOperations.Core.dll
+/Users/ramesh/Documents/Projects/LROAPI/LRO-Reusable-Library/src/LongRunningOperations.Core/bin/Debug/net8.0/LongRunningOperations.Core.deps.json
+/Users/ramesh/Documents/Projects/LROAPI/LRO-Reusable-Library/src/LongRunningOperations.Core/bin/Debug/net8.0/LongRunningOperations.Core.dll
+/Users/ramesh/Documents/Projects/LROAPI/LRO-Reusable-Library/src/LongRunningOperations.Core/bin/Debug/net8.0/LongRunningOperations.Core.pdb
+/Users/ramesh/Documents/Projects/LROAPI/LRO-Reusable-Library/src/LongRunningOperations.Core/obj/Debug/net8.0/LongRunningOperations.Core.csproj.AssemblyReference.cache
+/Users/ramesh/Documents/Projects/LROAPI/LRO-Reusable-Library/src/LongRunningOperations.Core/obj/Debug/net8.0/LongRunningOperations.Core.GeneratedMSBuildEditorConfig.editorconfig
+/Users/ramesh/Documents/Projects/LROAPI/LRO-Reusable-Library/src/LongRunningOperations.Core/obj/Debug/net8.0/LongRunningOperations.Core.AssemblyInfoInputs.cache
+/Users/ramesh/Documents/Projects/LROAPI/LRO-Reusable-Library/src/LongRunningOperations.Core/obj/Debug/net8.0/LongRunningOperations.Core.AssemblyInfo.cs
+/Users/ramesh/Documents/Projects/LROAPI/LRO-Reusable-Library/src/LongRunningOperations.Core/obj/Debug/net8.0/LongRunningOperations.Core.csproj.CoreCompileInputs.cache
+/Users/ramesh/Documents/Projects/LROAPI/LRO-Reusable-Library/src/LongRunningOperations.Core/obj/Debug/net8.0/LongRunningOperations.Core.sourcelink.json
+/Users/ramesh/Documents/Projects/LROAPI/LRO-Reusable-Library/src/LongRunningOperations.Core/obj/Debug/net8.0/LongRunningOperations.Core.dll
+/Users/ramesh/Documents/Projects/LROAPI/LRO-Reusable-Library/src/LongRunningOperations.Core/obj/Debug/net8.0/refint/LongRunningOperations.Core.dll
+/Users/ramesh/Documents/Projects/LROAPI/LRO-Reusable-Library/src/LongRunningOperations.Core/obj/Debug/net8.0/LongRunningOperations.Core.pdb
+/Users/ramesh/Documents/Projects/LROAPI/LRO-Reusable-Library/src/LongRunningOperations.Core/obj/Debug/net8.0/ref/LongRunningOperations.Core.dll

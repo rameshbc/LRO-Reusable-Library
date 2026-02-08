@@ -1,43 +1,19 @@
-export enum OperationState {
-  Accepted = 0,
-  Running = 1,
-  Succeeded = 2,
-  Failed = 3,
-  Cancelled = 4,
-  TimedOut = 5,
-}
+/**
+ * Re-export all LRO core models from the shared library.
+ * App-specific request/response types live below.
+ */
+export {
+  OperationState,
+  OperationStateLabels,
+  TERMINAL_STATES,
+} from 'ngx-lro';
+export type {
+  OperationAcceptedResponse,
+  OperationStatusResponse,
+  PollingUpdate,
+} from 'ngx-lro';
 
-export const OperationStateLabels: Record<number, string> = {
-  [OperationState.Accepted]: 'Accepted',
-  [OperationState.Running]: 'Running',
-  [OperationState.Succeeded]: 'Succeeded',
-  [OperationState.Failed]: 'Failed',
-  [OperationState.Cancelled]: 'Cancelled',
-  [OperationState.TimedOut]: 'Timed Out',
-};
-
-export interface OperationAcceptedResponse {
-  operationId: string;
-  operationName: string;
-  status: OperationState;
-  statusCheckUrl: string;
-  cancelUrl?: string;
-  estimatedDurationSeconds: number;
-  createdAtUtc: string;
-}
-
-export interface OperationStatusResponse {
-  operationId: string;
-  operationName: string;
-  status: OperationState;
-  percentComplete: number;
-  createdAtUtc: string;
-  lastUpdatedAtUtc: string;
-  completedAtUtc?: string;
-  resultData?: string;
-  errorMessage?: string;
-  retryAfterSeconds?: number;
-}
+// ── App-specific request models ──────────────────────────────────────
 
 export interface ReportRequest {
   reportType: string;

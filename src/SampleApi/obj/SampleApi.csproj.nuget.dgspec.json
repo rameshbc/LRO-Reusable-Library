@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/ramesh/Documents/Projects/LROAPI/src/SampleApi/SampleApi.csproj": {}
+    "/Users/ramesh/Documents/Projects/LROAPI/LRO-Reusable-Library/src/SampleApi/SampleApi.csproj": {}
   },
   "projects": {
-    "/Users/ramesh/Documents/Projects/LROAPI/src/LongRunningOperations.Core/LongRunningOperations.Core.csproj": {
+    "/Users/ramesh/Documents/Projects/LROAPI/LRO-Reusable-Library/src/LongRunningOperations.Core/LongRunningOperations.Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/ramesh/Documents/Projects/LROAPI/src/LongRunningOperations.Core/LongRunningOperations.Core.csproj",
+        "projectUniqueName": "/Users/ramesh/Documents/Projects/LROAPI/LRO-Reusable-Library/src/LongRunningOperations.Core/LongRunningOperations.Core.csproj",
         "projectName": "LongRunningOperations.Core",
-        "projectPath": "/Users/ramesh/Documents/Projects/LROAPI/src/LongRunningOperations.Core/LongRunningOperations.Core.csproj",
+        "projectPath": "/Users/ramesh/Documents/Projects/LROAPI/LRO-Reusable-Library/src/LongRunningOperations.Core/LongRunningOperations.Core.csproj",
         "packagesPath": "/Users/ramesh/.nuget/packages/",
-        "outputPath": "/Users/ramesh/Documents/Projects/LROAPI/src/LongRunningOperations.Core/obj/",
+        "outputPath": "/Users/ramesh/Documents/Projects/LROAPI/LRO-Reusable-Library/src/LongRunningOperations.Core/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/ramesh/.nuget/NuGet/NuGet.Config"
@@ -98,14 +98,14 @@
         }
       }
     },
-    "/Users/ramesh/Documents/Projects/LROAPI/src/SampleApi/SampleApi.csproj": {
+    "/Users/ramesh/Documents/Projects/LROAPI/LRO-Reusable-Library/src/SampleApi/SampleApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/ramesh/Documents/Projects/LROAPI/src/SampleApi/SampleApi.csproj",
+        "projectUniqueName": "/Users/ramesh/Documents/Projects/LROAPI/LRO-Reusable-Library/src/SampleApi/SampleApi.csproj",
         "projectName": "SampleApi",
-        "projectPath": "/Users/ramesh/Documents/Projects/LROAPI/src/SampleApi/SampleApi.csproj",
+        "projectPath": "/Users/ramesh/Documents/Projects/LROAPI/LRO-Reusable-Library/src/SampleApi/SampleApi.csproj",
         "packagesPath": "/Users/ramesh/.nuget/packages/",
-        "outputPath": "/Users/ramesh/Documents/Projects/LROAPI/src/SampleApi/obj/",
+        "outputPath": "/Users/ramesh/Documents/Projects/LROAPI/LRO-Reusable-Library/src/SampleApi/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/ramesh/.nuget/NuGet/NuGet.Config"
@@ -120,8 +120,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "/Users/ramesh/Documents/Projects/LROAPI/src/LongRunningOperations.Core/LongRunningOperations.Core.csproj": {
-                "projectPath": "/Users/ramesh/Documents/Projects/LROAPI/src/LongRunningOperations.Core/LongRunningOperations.Core.csproj"
+              "/Users/ramesh/Documents/Projects/LROAPI/LRO-Reusable-Library/src/LongRunningOperations.Core/LongRunningOperations.Core.csproj": {
+                "projectPath": "/Users/ramesh/Documents/Projects/LROAPI/LRO-Reusable-Library/src/LongRunningOperations.Core/LongRunningOperations.Core.csproj"
               }
             }
           }

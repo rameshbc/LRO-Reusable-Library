@@ -7,6 +7,11 @@
     "noImplicitOverride": true,
     "noPropertyAccessFromIndexSignature": true,
     "noImplicitReturns": true,
+    "paths": {
+      "ngx-lro": [
+        "./dist/ngx-lro"
+      ]
+    },
     "noFallthroughCasesInSwitch": true,
     "skipLibCheck": true,
     "isolatedModules": true,
@@ -25,6 +30,12 @@
   "references": [
     {
       "path": "./tsconfig.app.json"
+    },
+    {
+      "path": "./projects/ngx-lro/tsconfig.lib.json"
+    },
+    {
+      "path": "./projects/ngx-lro/tsconfig.spec.json"
     }
   ]
 }

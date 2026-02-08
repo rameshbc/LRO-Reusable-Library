@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Bj5IMtjY4F4=",
+  "dgSpecHash": "wtQQgk/HpjM=",
   "success": true,
-  "projectFilePath": "/Users/ramesh/Documents/Projects/LROAPI/src/LongRunningOperations.Core/LongRunningOperations.Core.csproj",
+  "projectFilePath": "/Users/ramesh/Documents/Projects/LROAPI/LRO-Reusable-Library/src/LongRunningOperations.Core/LongRunningOperations.Core.csproj",
   "expectedPackageFiles": [
     "/Users/ramesh/.nuget/packages/azure.core/1.38.0/azure.core.1.38.0.nupkg.sha512",
     "/Users/ramesh/.nuget/packages/azure.identity/1.11.4/azure.identity.1.11.4.nupkg.sha512",
@@ -67,5 +67,15 @@
     "/Users/ramesh/.nuget/packages/microsoft.netcore.app.ref/8.0.22/microsoft.netcore.app.ref.8.0.22.nupkg.sha512",
     "/Users/ramesh/.nuget/packages/microsoft.aspnetcore.app.ref/8.0.22/microsoft.aspnetcore.app.ref.8.0.22.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "NU1900",
+      "level": "Warning",
+      "message": "Error occurred while getting package vulnerability data: Unable to load the service index for source https://api.nuget.org/v3/index.json.",
+      "projectPath": "/Users/ramesh/Documents/Projects/LROAPI/LRO-Reusable-Library/src/LongRunningOperations.Core/LongRunningOperations.Core.csproj",
+      "warningLevel": 1,
+      "filePath": "/Users/ramesh/Documents/Projects/LROAPI/LRO-Reusable-Library/src/LongRunningOperations.Core/LongRunningOperations.Core.csproj",
+      "targetGraphs": []
+    }
+  ]
 }

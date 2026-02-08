@@ -15,7 +15,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyDescriptionAttribute(("Reusable library for attribute-based long-running API operation management with m" +
     "ulti-instance support"))]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+345743d7e1472f104aa6542e479847a0b464816f")]
 [assembly: System.Reflection.AssemblyProductAttribute("LongRunningOperations.Core")]
 [assembly: System.Reflection.AssemblyTitleAttribute("LongRunningOperations.Core")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -2,13 +2,15 @@ import { Component, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Subject } from 'rxjs';
-import { OperationService, PollingUpdate } from '../services/operation.service';
 import {
+  LroService,
   OperationAcceptedResponse,
   OperationStatusResponse,
   OperationState,
   OperationStateLabels,
-} from '../models/operation.models';
+  PollingUpdate,
+} from 'ngx-lro';
+import { OperationService } from '../services/operation.service';
 
 interface TrackedOperation {
   operationId: string;
@@ -48,7 +50,10 @@ export class DashboardComponent implements OnDestroy {
   isStartingExport = false;
   isLoadingList = false;
 
-  constructor(private operationService: OperationService) {
+  constructor(
+    private operationService: OperationService,
+    private lroService: LroService,
+  ) {
     this.refreshList();
   }
 
@@ -106,7 +111,7 @@ export class DashboardComponent implements OnDestroy {
     this.operations.unshift(tracked);
 
     // Start polling
-    this.operationService
+    this.lroService
       .pollUntilComplete(accepted.operationId, 1500, cancel$)
       .subscribe({
         next: (update: PollingUpdate) => {
@@ -143,7 +148,7 @@ export class DashboardComponent implements OnDestroy {
 
   /** Cancel a tracked operation */
   cancelOperation(tracked: TrackedOperation): void {
-    this.operationService.cancelOperation(tracked.operationId).subscribe({
+    this.lroService.cancelOperation(tracked.operationId).subscribe({
       next: () => {
         tracked.cancel$.next();
         tracked.isPolling = false;
@@ -159,7 +164,7 @@ export class DashboardComponent implements OnDestroy {
   /** Refresh server-side operations list */
   refreshList(): void {
     this.isLoadingList = true;
-    this.operationService.listOperations().subscribe({
+    this.lroService.listOperations().subscribe({
       next: (list) => {
         this.allOperations = list;
         this.isLoadingList = false;
